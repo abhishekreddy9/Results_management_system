@@ -1,4 +1,5 @@
 var express = require("express"),
+multer = require("multer"),
 app = express(),
 bodyParser = require("body-parser"),
 mongoose = require("mongoose");
@@ -8,7 +9,9 @@ app.set("view engine", "ejs");
 //var excel = require("./excel.xls");
 var excelToJson = require('convert-excel-to-json');
 var Schema = mongoose.Schema;
-
+var storage = multer.memoryStorage();
+var upload = multer({dest : 'uploads/'});
+var fs = require('fs');
 
  var resultSchema = new Schema({
     hallticket:  String,
@@ -22,33 +25,75 @@ var Schema = mongoose.Schema;
 
 var results_model = mongoose.model('results', resultSchema);
 
-var result = excelToJson({
-    sourceFile: './excel.xls',
-    header:{
-	    // Is the number of rows that will be skipped and will not be present at our result object. Counting from top to bottom
-	    rows: 5 // 2, 3, 4, etc.
-	},
-	columnToKey: {
-		A: 'hallticket',
-		B: 'subject_code',
-		C:'subject_name',
-		D:'internal_marks',
-		E:'external_marks',
-		F:'total_marks',
-		G:'credits'
-	}
+
+// results_model.insertMany( result.Sheet0 ,function(err){
+//      if (err) 
+//    console.log("err");
+//    else
+//        console.log("Saved!");
+//  });
+
+app.get("/admin",function(req,res){
+  res.render("admin");
+}
+);
+
+app.get("/cleardb",function(req,res){
+  mongoose.connection.db.dropCollection('results', function(err, result) {
+    if(err)
+      console.log(err);
+    else
+      res.send(result);
+  });
 });
 
-result.Sheet0.forEach(function(each){
-     each.year = "2016";
- })
+app.post("/add",upload.array('file'),function(req,res){
 
-//results_model.insertMany( result.Sheet0 ,function(err){
-     //if (err) 
-   //console.log("err");
-   //else
-   //     console.log("Saved!");
- //});
+  console.log(req.body);
+  console.log(req.files);
+
+  req.files.forEach(function(file)
+  {
+    
+    var result = excelToJson({
+      sourceFile: file.path ,
+      header:{
+        // Is the number of rows that will be skipped and will not be present at our result object. Counting from top to bottom
+        rows: 5 // 2, 3,les);
+    
+    },
+    columnToKey: {
+      A: 'hallticket',
+      B: 'subject_code',
+      C:'subject_name',
+      D:'internal_marks',
+      E:'external_marks',
+      F:'total_marks',
+      G:'credits'
+    }
+    });
+
+    results_model.insertMany( result.Sheet0 ,function(err){
+        if (err) 
+          res.send("Error");
+        else {
+          fs.unlink(file.path, function(error) {
+              if (error) {
+                console.log(error);
+              }
+              console.log('file_Deleted');
+          });
+        }
+    });
+  }
+)
+
+
+
+
+
+  
+});
 
 app.get("/test", function(req, res){
         //if(err){
@@ -76,6 +121,6 @@ app.post("/test", function(req, res){
 
 
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(3000, process.env.IP, function(){
    console.log("The YelpCamp Server Has Started!");
 });
