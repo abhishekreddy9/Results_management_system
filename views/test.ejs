@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Results</title>
+    </head>
+    <style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+    <body>
+        <br>
+            <br>
+            <br>
+         <center>
+             <form action="/test" method="post">
+                <input  type="text" name="hallticket_no" placeholder="Enter Hallticketno">
+                <br>
+                <br>
+                <br>
+                <button>Submit!</button>
+            </form>
+            <br>
+            <br>
+            <br>
+     <% if(typeof student !='undefined'){ %>
+    <table>
+       <tr>
+    <th> subject_code   </th>
+    <th> subject_name  </th>
+    <th> internal_marks  </th>
+    <th> external_marks  </th>
+    <th> total_marks   </th>
+    <th> credits   </th>
+    </tr>
+           
+    <% student.forEach(function(mark){ %>
+        <tr>
+       <td><%= mark.subject_code %>&nbsp;</td> 
+        <td><%= mark.subject_name %> &nbsp;</td>
+        <td><%= mark.internal_marks %>&nbsp;</td>
+        <td><%= mark.external_marks %>&nbsp;</td>
+        <td><%= mark.total_marks %> &nbsp;</td>
+        <td><%= mark.credits %></td>
+    </tr>
+<% }) %> 
+</table>
+<% } %>
+</center>
+</body>
+</html>

@@ -1,0 +1,81 @@
+var express = require("express"),
+app = express(),
+bodyParser = require("body-parser"),
+mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost/data");
+app.use(bodyParser.urlencoded({extended: true}));
+app.set("view engine", "ejs");
+//var excel = require("./excel.xls");
+var excelToJson = require('convert-excel-to-json');
+var Schema = mongoose.Schema;
+
+
+ var resultSchema = new Schema({
+    hallticket:  String,
+    subject_code: String,
+    subject_name:   String,
+    internal_marks: Number,
+    external_marks: Number,
+    total_marks: Number,
+    credits: Number
+  });
+
+var results_model = mongoose.model('results', resultSchema);
+
+var result = excelToJson({
+    sourceFile: './excel.xls',
+    header:{
+	    // Is the number of rows that will be skipped and will not be present at our result object. Counting from top to bottom
+	    rows: 5 // 2, 3, 4, etc.
+	},
+	columnToKey: {
+		A: 'hallticket',
+		B: 'subject_code',
+		C:'subject_name',
+		D:'internal_marks',
+		E:'external_marks',
+		F:'total_marks',
+		G:'credits'
+	}
+});
+
+result.Sheet0.forEach(function(each){
+     each.year = "2016";
+ })
+
+//results_model.insertMany( result.Sheet0 ,function(err){
+     //if (err) 
+   //console.log("err");
+   //else
+   //     console.log("Saved!");
+ //});
+
+app.get("/test", function(req, res){
+        //if(err){
+        //    console.log(member);
+           // console.log(err);
+       // } else {
+         res.render("test");
+        
+        
+});
+
+app.post("/test", function(req, res){
+   // var num=req.body.hallticket_no;
+     results_model.find({'hallticket':req.body.hallticket_no},function (err, member) {
+        if(err){
+      console.log(err);
+      }
+      else 
+      {
+          res.render("test", {student: member });
+          
+            }
+        });
+});    
+
+
+
+app.listen(process.env.PORT, process.env.IP, function(){
+   console.log("The YelpCamp Server Has Started!");
+});
