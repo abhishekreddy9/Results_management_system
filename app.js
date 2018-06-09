@@ -20,7 +20,9 @@ var fs = require('fs');
     internal_marks: Number,
     external_marks: Number,
     total_marks: Number,
-    credits: Number
+    credits: Number,
+    year: String,
+
   });
 
 var results_model = mongoose.model('results', resultSchema);
@@ -51,6 +53,10 @@ app.post("/add",upload.array('file'),function(req,res){
 
   console.log(req.body);
   console.log(req.files);
+  
+
+  
+
 
   req.files.forEach(function(file)
   {
@@ -69,10 +75,17 @@ app.post("/add",upload.array('file'),function(req,res){
       D:'internal_marks',
       E:'external_marks',
       F:'total_marks',
-      G:'credits'
+      G:'credits',
     }
-    });
+  });
 
+    result.Sheet0.forEach(function(years)
+         {
+           years.year=req.body.Year;
+          }
+          );
+
+     console.log(result.Sheet0);
     results_model.insertMany( result.Sheet0 ,function(err){
         if (err) 
           res.send("Error");
@@ -82,6 +95,10 @@ app.post("/add",upload.array('file'),function(req,res){
                 console.log(error);
               }
               console.log('file_Deleted');
+              
+              
+              
+              
           });
         }
     });
@@ -106,13 +123,16 @@ app.get("/test", function(req, res){
 });
 
 app.post("/test", function(req, res){
-   // var num=req.body.hallticket_no;
-     results_model.find({'hallticket':req.body.hallticket_no},function (err, member) {
+  
+     results_model.find({'hallticket':req.body.hallticket_no,'year':req.body.Year},function (err, member) {
         if(err){
       console.log(err);
       }
       else 
       {
+        console.log(req.body.hallticket_no);
+        console.log(req.body.Year);
+        console.log(typeof req.body.Year);
           res.render("test", {student: member });
           
             }
