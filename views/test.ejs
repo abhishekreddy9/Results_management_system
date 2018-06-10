@@ -14,12 +14,13 @@ table, th, td {
             <br>
          <center>
              <form action="/test" method="post">
+                <input type="hidden" name="collection_id" value=<%= id %>>
                 <input  type="text" name="hallticket_no" placeholder="Enter Hallticketno">
                 <br>
                 <br>
                 <br>
                 <select name="Year">
-                    <option value="1st Year">1st year</option>
+                    <option value="1st-Year">1st year</option>
                     <option value="one-one">1-1</option>
                     <option value="one-two">1-2</option>
                     <option value="two-one">2-1</option>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Menu</title>
+    </head>
+    <body>
+        <ul>
+        <% result_data.forEach(function(item){ console.log(item)%>
+            <li>  <a href="/test/<%= item.listid %>">   <%= item.listid %>   </a> </li>
+        <% }) %>
+        </ul>
+   </body>
+</html>

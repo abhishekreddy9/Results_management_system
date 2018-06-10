@@ -6,7 +6,7 @@
     <body>
         <form action="/add" method="post" enctype="multipart/form-data">
             <select name="Year">
-                <option value="1st Year">1st year</option>
+                <option value="1st-Year">1st year</option>
                 <option value="one-one">1-1</option>
                 <option value="one-two">1-2</option>
                 <option value="two-one">2-1</option>
@@ -23,10 +23,25 @@
                 <option value="R15">R15</option>
                 <option value="R16">R16</option>
               </select> 
+
             </br>
+            <select name="Paper">
+              <option value="regular">Regular</option>
+              <option value="supplementary">Supplementary</option>
+            </select> 
+          </br>
+
+          <input id="date" name="Date" type="date">
+
+        </br>
               <input type="file" name="file" accept="application/vnd.ms-excel"  multiple>
             <button>Submit!</button>
             </form>
+
+
+
+
+            
             
    </body>
 </html>
