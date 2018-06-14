@@ -36,8 +36,16 @@ var resultsList = new Schema({
 var results_list = mongoose.model('results_List',resultsList);
 
 app.get("/admin",function(req,res){
-  res.render("admin");
+  results_list.find({}, function(err, allLists){
+    if(err){
+        console.log(err);
+    } else {
+      res.render("admin",{result_data:allLists});
+      //console.log(allLists);
+    }
+ });
 });
+
 
 app.get("/cleardb",function(req,res){
   mongoose.connection.db.dropDatabase('data', function(err, result) {
@@ -45,6 +53,18 @@ app.get("/cleardb",function(req,res){
       console.log(err);
     else
       res.send(result);
+  });
+});
+
+
+app.get("/",function(req, res){
+  results_list.find({}, function(err, allLists){
+     if(err){
+         console.log(err);
+     } else {
+       res.render("menu",{result_data:allLists});
+       //console.log(allLists);
+     }
   });
 });
 
@@ -107,13 +127,21 @@ app.post("/add",upload.array('file'),function(req,res){
               InsertedToList = true;
             }
             
-         //   res.render("new");
+          
           }
         });
       }
     });
   });  
+  
+res.send("success");
+console.log("success");
 });
+
+
+
+
+
 
 app.get("/test/:id", function(req, res){
   console.log(req.params.id);
@@ -124,33 +152,41 @@ app.post("/test", function(req, res){
  let results_model = mongoose.model(req.body.collection_id,resultSchema);
 
 
- results_model.find({'hallticket':req.body.hallticket_no,'year':req.body.Year},function (err, member) {
+ results_model.find({'hallticket':req.body.hallticket_no},function (err, member) {
     if(err){
       console.log(err);
     }
     else {
-      console.log(member);
-      console.log(req.body.hallticket_no);
-      console.log(req.body.Year);
-      console.log(typeof req.body.Year);
       res.render("test", {student: member,id:req.body.collection_id });
           
     }
   });
 });
 
-
-app.get("/",function(req, res){
+app.get("/admin/edit",function(req, res){
   results_list.find({}, function(err, allLists){
-     if(err){
-         console.log(err);
-     } else {
-       res.render("menu",{result_data:allLists});
-       //console.log(allLists);
-     }
-  });
+    if(err){
+        console.log(err);
+    } else {
+      res.render("edit",{result_data:allLists});
+      //console.log(allLists);
+    }
+ });
 });
 
+
+app.get("/admin/edit/:id",function(req, res){
+  console.log(req.params.id);
+let results_model = mongoose.model(req.params.id,resultSchema);
+ results_model.collection.drop();
+ let results_list = mongoose.model("results_List",resultsList); 
+ results_list.deleteOne({ 'listid': req.params.id }, function (err) {
+  if (err) return handleError(err);
+  // deleted at most one tank document
+});
+ res.send("deleted");   
+  });
+ 
 app.listen(3000, process.env.IP, function(){
    console.log("The YelpCamp Server Has Started!");
 });

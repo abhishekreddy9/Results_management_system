@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Menu</title>
+    </head>
+    <body>
+        
+        <ul>
+        <% result_data.forEach(function(item){ console.log(item)%>
+            <li>  <%= item.listid %> <a href="/admin/edit/<%= item.listid %>">   Delete  </a> </li>
+        <% }) %>
+        </ul>
+   </body>
+</html>
