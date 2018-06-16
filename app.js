@@ -182,11 +182,11 @@ let results_model = mongoose.model(req.params.id,resultSchema);
  let results_list = mongoose.model("results_List",resultsList); 
  results_list.deleteOne({ 'listid': req.params.id }, function (err) {
   if (err) return handleError(err);
-  // deleted at most one tank document
+
 });
  res.send("deleted");   
   });
  
 app.listen(3000, process.env.IP, function(){
-   console.log("The YelpCamp Server Has Started!");
+   console.log("Server Has Started!");
 });
