@@ -55,12 +55,22 @@ var resultsList = new Schema({
 
 var results_list = mongoose.model('results_List',resultsList);
 
+
+
+
+
 app.get("/admin",isLoggedIn,function(req,res){
+      res.render("adminhome");
+    }
+);
+
+
+app.get("/admin/addresults",isLoggedIn,function(req,res){
   results_list.find({}, function(err, allLists){
     if(err){
         console.log(err);
     } else {
-      res.render("admin",{result_data:allLists});
+      res.render("addresults",{result_data:allLists});
       //console.log(allLists);
     }
  });
@@ -84,7 +94,7 @@ app.get("/cleardb",function(req,res){
 
 
 
-app.post("/add",isLoggedIn,upload.array('file'),function(req,res){
+app.post("/admin/addresults",isLoggedIn,upload.array('file'),function(req,res){
   console.log(req.body);
   console.log(req.files);
   
@@ -159,19 +169,19 @@ console.log("success");
 
 
 
-app.get("/admin/edit",isLoggedIn,function(req, res){
+app.get("/admin/editresults",isLoggedIn,function(req, res){
   results_list.find({}, function(err, allLists){
     if(err){
         console.log(err);
     } else {
-      res.render("edit",{result_data:allLists});
+      res.render("editresults",{result_data:allLists});
       //console.log(allLists);
     }
  });
 });
 
 
-app.get("/admin/edit/:id",isLoggedIn,function(req, res){
+app.get("/admin/editresults/:id",isLoggedIn,function(req, res){
   console.log(req.params.id);
 let results_model = mongoose.model(req.params.id,resultSchema);
  results_model.collection.drop();
@@ -193,7 +203,7 @@ let results_model = mongoose.model(req.params.id,resultSchema);
            console.log(err);
        }
         else {
-         res.render("menu",{result_data:allLists});
+         res.render("resultshome",{result_data:allLists});
          //console.log(allLists);
        }
   
@@ -204,12 +214,11 @@ let results_model = mongoose.model(req.params.id,resultSchema);
 
   
 
-  app.get("/test/:id", function(req, res){
-    console.log(req.params.id);
-    res.render("test",{id:req.params.id});        
+  app.get("/results/:id", function(req, res){
+    res.render("result",{id:req.params.id});        
   });
   
-  app.post("/test", function(req, res){
+  app.post("/results", function(req, res){
    let results_model = mongoose.model(req.body.collection_id,resultSchema);
   
   
@@ -218,7 +227,7 @@ let results_model = mongoose.model(req.params.id,resultSchema);
         console.log(err);
       }
       else {
-        res.render("test", {student: member,id:req.body.collection_id });
+        res.render("result", {student: member,id:req.body.collection_id });
           // res.send(member);  
       }
     });
