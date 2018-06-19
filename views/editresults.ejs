@@ -6,9 +6,9 @@
     <body>
         
         <ul>
-        <% result_data.forEach(function(item){ console.log(item)%>
-            <li>  <%= item.listid %> <a href="/admin/edit/<%= item.listid %>">   Delete  </a> </li>
-        <% }) %>
+            <% for(i=result_data.length-1;i>=0;i--) {%>
+            <li>  <%= result_data[i].listid %> <a href="/admin/editresults/<%= result_data[i].listid %>">   Delete  </a> </li>
+            <% } %>
         </ul>
 
         <a href="/admin">Home</a>
