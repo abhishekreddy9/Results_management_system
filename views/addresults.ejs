@@ -1,51 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Admin</title>
-    </head>
-    <body>
-        <form action="/admin/addresults" method="post" enctype="multipart/form-data">
-            <select name="Year">
-                <option value="1st-Year">1st year</option>
-                <option value="one-one">1-1</option>
-                <option value="one-two">1-2</option>
-                <option value="two-one">2-1</option>
-                <option value="two-two">2-2</option>
-                <option value="three-one">3-1</option>
-                <option value="three-two">3-2</option>
-                <option value="four-one">4-1</option>
-                <option value="four-two">4-2</option>
-              </select> 
-            </br>
-              <select name="Regulation">
-                <option value="R09">R09</option>
-                <option value="R13">R13</option>
-                <option value="R15">R15</option>
-                <option value="R16">R16</option>
-              </select> 
 
-            </br>
-            <select name="Paper">
-              <option value="regular">Regular</option>
-              <option value="supplementary">Supplementary</option>
-            </select> 
-          </br>
+<head>
+  <title>Admin</title>
+</head>
 
-          <input id="date" name="Date" type="date">
+<body>
+  <form action="/admin/addresults" method="post" enctype="multipart/form-data">
+    <select name="Year">
+      <option value="1st-Year">1st year</option>
+      <option value="one-one">1-1</option>
+      <option value="one-two">1-2</option>
+      <option value="two-one">2-1</option>
+      <option value="two-two">2-2</option>
+      <option value="three-one">3-1</option>
+      <option value="three-two">3-2</option>
+      <option value="four-one">4-1</option>
+      <option value="four-two">4-2</option>
+    </select>
+    </br>
+    <select name="Regulation">
+      <option value="R09">R09</option>
+      <option value="R13">R13</option>
+      <option value="R15">R15</option>
+      <option value="R16">R16</option>
+    </select>
 
-        </br>
-              <input type="file" name="file" accept="application/vnd.ms-excel"  multiple>
-            <button>Submit!</button>
-            </form>
+    </br>
+    <select name="Paper">
+      <option value="regular">Regular</option>
+      <option value="supplementary">Supplementary</option>
+    </select>
+    </br>
 
-          </br>
+    <input id="date" name="Date" type="date">
+
+    </br>
+    <input type="file" name="file" accept="application/vnd.ms-excel" multiple>
+    <button>Submit!</button>
+  </form>
+
+  </br>
 
 
-            <a href="/admin">Home</a>
-          </br>
+  <a href="/admin">Home</a>
+  </br>
 
-            <a href="/logout">   logout  </a>
-            
-            
-   </body>
+  <a href="/logout"> logout </a>
+
+
+</body>
+
 </html>

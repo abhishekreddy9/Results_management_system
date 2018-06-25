@@ -1,0 +1,33 @@
+.form
+{
+    width: 35%;
+    margin: auto;
+    margin-top:10%;
+    background-color: white;
+
+     border:1px 	#DCDCDC solid; 
+     border-radius: 15px;
+    padding: 50px 25px 70px 25px;
+    
+}
+
+.btn-primary
+{
+    background-color: black;
+    border-radius: 5%;
+
+}
+
+
+body{
+    background-color: #F5F5F5;
+    font-family: 'Raleway', sans-serif;
+font-weight: normal;
+}
+
+h2{
+    margin-bottom: 25px;
+    font-family: 'Raleway', sans-serif;
+font-weight: strong;
+
+}
