@@ -74,3 +74,16 @@ font-weight: strong;
 {
     margin:8px 8px 8px 8px;
 }
+
+.editresults
+{
+    margin-top: 50px;
+    margin-left: 70px;
+    font-size: 28px;
+}
+
+#eachresult
+{
+    margin:10px 10px 10px 10px;
+    
+}

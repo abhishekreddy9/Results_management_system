@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Menu</title>
+        <title>Results</title>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link rel="stylesheet" href="/stylesheets/style.css">
     </head>
     <body>
-        
-        <ul>
-            <% for(i=result_data.length-1;i>=0;i--) {%>
-            <li>  <%= result_data[i].listid %> <a href="/admin/editresults/<%= result_data[i].listid %>">   Delete  </a> </li>
-            <% } %>
-        </ul>
+            <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                      <div class="navbar-header">
+                      </div>
 
-        <a href="/admin">Home</a>
-        </br>
-        <a href="/logout">   logout  </a>
+                      <ul class="nav navbar-nav">
+                            
+                            <li><a id="left" href="/admin">Home</a></li>
+                        </ul>
+
+                      <ul class="nav navbar-nav navbar-right">
+                            
+                            <li><a id="right" href="/logout">Logout</a></li>
+                        </ul>
+                    </div>
+                  </nav>
+        <div class="editresults">
+            
+        <ul>
+                
+            <% for(i=result_data.length-1;i>=0;i--) {%>
+                <div id="eachresult">
+            <li>  <%= result_data[i].listid %> <a href="/admin/editresults/<%= result_data[i].listid %>">   Delete  </a> </li>
+        </div>
+            <% } %>
+
+        </ul>
+        </div>
+
+        
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
    </body>
 </html>
