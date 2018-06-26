@@ -18,6 +18,12 @@
 
 }
 
+.addform
+{
+    margin-top: 30px;
+    margin-left: 120px; 
+    font-size: 25px;  
+}
 
 body{
     background-color: #F5F5F5;
@@ -25,12 +31,17 @@ body{
 font-weight: normal;
 }
 
-h2{
+#loginh2{
     margin-bottom: 25px;
     font-family: 'Raleway', sans-serif;
 font-weight: strong;
 
 
+}
+
+#regulation
+{
+    width: 15%;
 }
 
 #left
@@ -43,6 +54,13 @@ font-weight: strong;
     margin-right: 10px;
 }
 
+.addresultsh1
+{
+    
+        text-decoration: underline;
+    margin-left: 5px;
+}
+
 .content
 {
     margin-top: 75px;
@@ -52,3 +70,7 @@ font-weight: strong;
     
 }
 
+.inputspace
+{
+    margin:8px 8px 8px 8px;
+}

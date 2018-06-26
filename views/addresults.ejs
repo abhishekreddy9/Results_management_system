@@ -3,11 +3,41 @@
 
 <head>
   <title>Admin</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
+
 <body>
+
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+          </div>
+
+          <ul class="nav navbar-nav">
+                
+                <li><a id="left" href="/admin">Home</a></li>
+            </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+                
+                <li><a id="right" href="/logout">Logout</a></li>
+            </ul>
+        </div>
+      </nav>
+
+
+
+<div class="addform">
+
+  <h1 class="addresultsh1">Add New Results</h1>
   <form action="/admin/addresults" method="post" enctype="multipart/form-data">
-    <select name="Year">
+    
+    <label>Year:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <select class="inputspace" name="Year">
       <option value="1st-Year">1st year</option>
       <option value="one-one">1-1</option>
       <option value="one-two">1-2</option>
@@ -19,35 +49,31 @@
       <option value="four-two">4-2</option>
     </select>
     </br>
-    <select name="Regulation">
-      <option value="R09">R09</option>
-      <option value="R13">R13</option>
-      <option value="R15">R15</option>
-      <option value="R16">R16</option>
-    </select>
+    <label>Regulation:</label>
+    <input class="inputspace" id="regulation" type="text" name="Regulation" placeholder="ex:R15">
+      
 
     </br>
-    <select name="Paper">
+    <label>Paper:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <select class="inputspace" name="Paper">
       <option value="regular">Regular</option>
       <option value="supplementary">Supplementary</option>
     </select>
     </br>
-
-    <input id="date" name="Date" type="date">
+    <label >Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <input class="inputspace" id="date" name="Date" type="date">
 
     </br>
-    <input type="file" name="file" accept="application/vnd.ms-excel" multiple>
-    <button>Submit!</button>
+    
+    <input class="inputspace" type="file" name="file" accept="application/vnd.ms-excel" multiple>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <button class="btn btn-primary btn-lg" >Submit!</button>
+  
   </form>
 
-  </br>
+</div>
 
-
-  <a href="/admin">Home</a>
-  </br>
-
-  <a href="/logout"> logout </a>
-
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </body>
 
