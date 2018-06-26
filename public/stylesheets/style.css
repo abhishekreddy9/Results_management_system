@@ -77,13 +77,28 @@ font-weight: strong;
 
 .editresults
 {
+
     margin-top: 50px;
-    margin-left: 70px;
+    margin-left: 150px;
     font-size: 28px;
+    width: 70%;
+}
+
+
+.editresultsh1
+{
+    text-decoration: underline;
+    font-size: 40px;
 }
 
 #eachresult
 {
-    margin:10px 10px 10px 10px;
+
+   
     
+    
+}
+
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+    border: 4px solid #696969;
 }

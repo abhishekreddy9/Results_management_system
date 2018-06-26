@@ -24,16 +24,25 @@
                     </div>
                   </nav>
         <div class="editresults">
-            
-        <ul>
+            <center><h1 class="editresultsh1">EXAMINATION RESULTS</h1></center>
+                
+                      <table class="table table-bordered">
+
                 
             <% for(i=result_data.length-1;i>=0;i--) {%>
+                <tr>
+                    <td>
                 <div id="eachresult">
-            <li>  <%= result_data[i].listid %> <a href="/admin/editresults/<%= result_data[i].listid %>">   Delete  </a> </li>
-        </div>
+                    <center>
+              <%= result_data[i].listid %> <a href="/admin/editresults/<%= result_data[i].listid %>">   &nbsp;&nbsp;&nbsp;&nbsp;delete  </a>
+            </center>
+            </div>
+    </td>
+    </tr>
             <% } %>
+        </table>  
 
-        </ul>
+        
         </div>
 
         
