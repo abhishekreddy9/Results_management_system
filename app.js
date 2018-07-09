@@ -83,14 +83,14 @@ app.get("/admin/addresults", isLoggedIn, function (req, res) {
 });
 
 
-app.get("/cleardb", function (req, res) {
-  mongoose.connection.db.dropDatabase('data', function (err, result) {
-    if (err)
-      console.log(err);
-    else
-      res.send(result);
-  });
-});
+// app.get("/cleardb", function (req, res) {
+//   mongoose.connection.db.dropDatabase('data', function (err, result) {
+//     if (err)
+//       console.log(err);
+//     else
+//       res.send(result);
+//   });
+// });
 
 
 
@@ -104,7 +104,7 @@ app.post("/admin/addresults", isLoggedIn, upload.array('file'), function (req, r
   console.log(req.body);
   console.log(req.files);
 
-  var collName = req.body.Year + "-" + req.body.Regulation + "-" + req.body.Paper + "-" + 'Results' + "-" + req.body.Date;
+  var collName = req.body.Year + "_" + req.body.Regulation + "_" + req.body.Paper + "_" + 'Results' + "_" + req.body.Date;
   let results_model = mongoose.model(collName, resultSchema);
   var InsertedToList = false;
 
@@ -152,22 +152,20 @@ app.post("/admin/addresults", isLoggedIn, upload.array('file'), function (req, r
               }, function (error) {
                 if (error) {
                   console.log(error);
+
+
                 }
 
               });
               InsertedToList = true;
             }
-
-
           }
         });
       }
     });
   });
+  res.send(`<script>window.location.href="/admin"</script>`);
 
-  res.send("success");
-  console.log("success");
-  // console.log("success");
 });
 
 
@@ -198,9 +196,9 @@ app.get("/admin/editresults/:id", isLoggedIn, function (req, res) {
     'listid': req.params.id
   }, function (err) {
     if (err) return handleError(err);
-
+    res.send(`<script>window.location.href="/admin/editresults"</script>`);
   });
-  res.send("deleted");
+ 
 
 });
 
@@ -279,24 +277,24 @@ function isLoggedIn(req, res, next) {
 
 
 
-//   app.get('/register', function(req, res){
-//     res.render('register'); 
-//  });
+app.get('/register', function (req, res) {
+  res.render('register');
+});
 
- //handle sign-up register logic
-//  app.post('/register', function(req, res){
-//          var newUser = new User({username: req.body.username}); // Note password NOT in new User
-//         User.register(newUser, req.body.password, function(err, user){
-//          if(err){
-//              console.log(err);
-//              return res.render('register');
-//          }else{
-//              passport.authenticate("local")(req, res, function(){
-//                  res.redirect('/admin');
-//              });
-//          }
-//      }); 
-//  });
+
+app.post('/register', function (req, res) {
+  var newUser = new User({ username: req.body.username }); // Note password NOT in new User
+  User.register(newUser, req.body.password, function (err, user) {
+    if (err) {
+      console.log(err);
+      return res.render('register');
+    } else {
+      passport.authenticate("local")(req, res, function () {
+        res.redirect('/admin');
+      });
+    }
+  });
+});
 
 
 app.listen(3000, process.env.IP, function () {

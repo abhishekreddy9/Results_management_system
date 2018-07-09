@@ -1,17 +1,65 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Menu</title>
-    </head>
-    <body>
-        <ul>
-        <% for(i=result_data.length-1;i>=0;i--) {%>
 
-           
-         
-            <li>  <a href="/results/<%= result_data[i].listid %>">   <%= result_data[i].listid %>   </a> </li>
+<head>
+        <title>Results</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
 
-        <% } %>
-        </ul>
-   </body>
+<body>
+
+        <div class="container-fluid text-center">
+
+
+
+                <div class="image">
+                        <img id="logo" src="/stylesheets/logo.jpg">
+                </div>
+
+                <h1 id="h11">EXAMINATION RESULTS</h1>
+        
+                <hr class="style-one">
+        </div>
+
+
+
+       
+       
+        <div class="container text-center cont">
+                
+
+                <div class="row">
+
+                        <ul>
+
+                                <% for(i=result_data.length-1;i>=0;i--) {%>
+
+                                    
+                                        <div class="col-md-12">
+                                        <li>
+                                                <a id="aintable" href="/results/<%= result_data[i].listid %>">
+                                                        <%= result_data[i].listid.replace(/_/g, " ");%>
+                                                </a>
+
+                                        </li>
+
+                                </div>
+                                        <% } %>
+
+
+                        </ul>
+
+                </div>
+                </div>
+        </div>
+
+
+
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+
 </html>

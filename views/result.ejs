@@ -2,13 +2,14 @@
 <html>
     <head>
         <title>Results</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link rel="stylesheet" href="/stylesheets/style.css">s
     </head>
-    <style>
-table, th, td {
-    border: 1px solid black;
-}
-</style>
     <body>
+
+            <div class="container">
         <br>
             <br>
             <br>
@@ -25,14 +26,14 @@ table, th, td {
             <br>
             <br>
      <% if(typeof student !='undefined'){ %>
-    <table>
+        <table class="table table-hover">
        <tr>
-    <th> subject_code   </th>
-    <th> subject_name  </th>
-    <th> internal_marks  </th>
-    <th> external_marks  </th>
-    <th> total_marks   </th>
-    <th> credits   </th>
+    <th> &nbsp;&nbsp;Subject Code  &nbsp;&nbsp;  </th>
+    <th> &nbsp;&nbsp;Subject Name  &nbsp;&nbsp;</th>
+    <th> &nbsp;&nbsp;Internal Marks&nbsp;&nbsp;  </th>
+    <th> &nbsp;&nbsp;External Marks&nbsp;&nbsp;  </th>
+    <th> &nbsp;&nbsp;Total Marks   &nbsp;&nbsp;</th>
+    <th> &nbsp;&nbsp;Credits   &nbsp;&nbsp;</th>
     </tr>
     
     <% var sum=0; %>
@@ -52,7 +53,7 @@ table, th, td {
     <td>&nbsp;</td>
     <td> &nbsp;</td>
      <td>&nbsp;</td>
-     <td>total&nbsp;</td>
+     <td>Total&nbsp;</td>
      <td><%= sum%> &nbsp;</td>
      <td></td>
 
@@ -60,6 +61,10 @@ table, th, td {
 </table>
 <% } %>
 </center>
+
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</div>
 </body>
 </html>
 

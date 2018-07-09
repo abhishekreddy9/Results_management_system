@@ -34,7 +34,7 @@
                     <td>
                 <div id="eachresult">
                     <center>
-              <%= result_data[i].listid %> <a href="/admin/editresults/<%= result_data[i].listid %>">   &nbsp;&nbsp;&nbsp;&nbsp;delete  </a>
+              <%= result_data[i].listid.replace(/_/g, " "); %> <a href="/admin/editresults/<%= result_data[i].listid %>">   &nbsp;&nbsp;&nbsp;&nbsp;delete  </a>
             </center>
             </div>
     </td>
