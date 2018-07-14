@@ -1,0 +1,102 @@
+
+#h1inresult
+{
+    font-family: 'Bitter', serif;
+font-weight: 800;
+}
+
+#htnoinput
+{
+    width:25%;
+}
+
+
+/* // Large Devices// */
+
+@media (min-width:1200px)
+{
+
+
+
+}
+
+
+/* // Medium Devices// */
+
+@media (min-width:992px) and (max-width:1199px) 
+{
+    #h1inresult
+    {
+       
+        font-size: 35px;
+    }
+
+
+    
+
+}
+
+
+/* // Small Devices// */
+
+@media (min-width:768px) and (max-width:991px) 
+{
+    #h1inresult
+    {
+       
+        font-size: 35px;
+    }
+    
+    #htnoinput
+    {
+        width: 35%;
+    }
+}
+
+/* // Extra Small Devices// */
+
+@media (max-width:767px)
+{
+    #h1inresult
+    {
+       
+        font-size: 28px;
+    }
+
+    #htnoinput
+    {
+        width: 45%;
+    }
+
+
+   
+
+}
+
+@media (max-width:480px)
+{
+
+    #hh1inresult
+    {
+       
+        font-size: 21px;
+    }
+
+    #htnoinput
+    {
+        width: 60%;
+    }
+
+  
+}
+
+
+@media (max-width:320px)
+{
+
+    #htnoinput
+    {
+        width: 75%;
+    }
+
+}

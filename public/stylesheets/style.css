@@ -148,3 +148,9 @@ table
     border: 2px solid  	#A9A9A9;
   
 }
+
+
+#h1inresult
+{
+    text-transform: capitalize;
+}

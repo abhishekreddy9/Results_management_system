@@ -198,7 +198,7 @@ app.get("/admin/editresults/:id", isLoggedIn, function (req, res) {
     if (err) return handleError(err);
     res.send(`<script>window.location.href="/admin/editresults"</script>`);
   });
- 
+
 
 });
 
@@ -277,24 +277,24 @@ function isLoggedIn(req, res, next) {
 
 
 
-app.get('/register', function (req, res) {
-  res.render('register');
-});
+// app.get('/register', function (req, res) {
+//   res.render('register');
+// });
 
 
-app.post('/register', function (req, res) {
-  var newUser = new User({ username: req.body.username }); // Note password NOT in new User
-  User.register(newUser, req.body.password, function (err, user) {
-    if (err) {
-      console.log(err);
-      return res.render('register');
-    } else {
-      passport.authenticate("local")(req, res, function () {
-        res.redirect('/admin');
-      });
-    }
-  });
-});
+// app.post('/register', function (req, res) {
+//   var newUser = new User({ username: req.body.username }); // Note password NOT in new User
+//   User.register(newUser, req.body.password, function (err, user) {
+//     if (err) {
+//       console.log(err);
+//       return res.render('register');
+//     } else {
+//       passport.authenticate("local")(req, res, function () {
+//         res.redirect('/admin');
+//       });
+//     }
+//   });
+// });
 
 
 app.listen(3000, process.env.IP, function () {

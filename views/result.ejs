@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-        <link rel="stylesheet" href="/stylesheets/style.css">s
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="/stylesheets/responsive/result.css">
     </head>
     <body>
 
@@ -14,16 +15,15 @@
             <br>
             <br>
             <center>
+                <h1 id="h1inresult"> <%= id.replace(/_/g, " "); %> </h1>
+                <br>
              <form action="/results" method="post">
                 <input type="hidden" name="collection_id" value=<%= id %>>
-                <input  type="text" name="hallticket_no" placeholder="Enter Hallticketno">
+                <input class="form-control center" id="htnoinput"  type="text" name="hallticket_no" placeholder="Enter Hallticket Number">
                 <br>
-                <br>
-                <br>
-                <button>Submit!</button>
+                <button  class="btn btn-primary btn-md">Submit</button>
             </form>
-            <br>
-            <br>
+        
             <br>
      <% if(typeof student !='undefined'){ %>
         <table class="table table-hover">
@@ -53,8 +53,8 @@
     <td>&nbsp;</td>
     <td> &nbsp;</td>
      <td>&nbsp;</td>
-     <td>Total&nbsp;</td>
-     <td><%= sum%> &nbsp;</td>
+     <td><b>Total</b>&nbsp;</td>
+     <td><b><%= sum%> </b>&nbsp;</td>
      <td></td>
 
  </tr>
