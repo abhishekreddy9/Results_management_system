@@ -2,13 +2,12 @@
 <html>
     <head>
         <title>Results</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link rel="stylesheet" href="/stylesheets/style.css">
         <link rel="stylesheet" href="/stylesheets/responsive/result.css">
     </head>
-    <body>
+    <body style="display:block">
 
             <div class="container">
         <br>
@@ -27,10 +26,8 @@
             <br>
      <% if(typeof student !='undefined'){ %>
 
-        <div class="container" id="show">
-            <div class="row">
-                    <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
-        <table class="table table-hover table-responsive">
+            <div class="table-responsive">
+        <table class="table">
        <tr>
     <th> &nbsp;&nbsp;Subject Code  &nbsp;&nbsp;  </th>
     <th> &nbsp;&nbsp;Subject Name  &nbsp;&nbsp;</th>
@@ -63,8 +60,6 @@
 
  </tr>
 </table>
-</div>
-</div>
 </div>
 <% } %>
 </center>
