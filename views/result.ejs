@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Results</title>
+       
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link rel="stylesheet" href="/stylesheets/style.css">
@@ -40,12 +41,12 @@
     <% var sum=0; %>
     <% student.forEach(function(mark){ %>
         <tr>
-       <td><%= mark.subject_code %>&nbsp;</td> 
-        <td><%= mark.subject_name %> &nbsp;</td>
-        <td><%= mark.internal_marks %>&nbsp;</td>
-        <td><%= mark.external_marks %>&nbsp;</td>
-        <td><%= mark.total_marks %> &nbsp;</td>
-        <td><%= mark.credits %></td>
+       <td>&nbsp;&nbsp;<%= mark.subject_code %></td> 
+        <td>&nbsp;&nbsp;<%= mark.subject_name %> </td>
+        <td>&nbsp;&nbsp;<%= mark.internal_marks %></td>
+        <td>&nbsp;&nbsp;<%= mark.external_marks %></td>
+        <td>&nbsp;&nbsp;<%= mark.total_marks %> </td>
+        <td>&nbsp;&nbsp;<%= mark.credits %></td>
 
     </tr>
     <% sum=sum+mark.total_marks; %>
