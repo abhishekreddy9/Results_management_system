@@ -2,9 +2,10 @@
 
 @media (min-width:1200px)
 {
-
-
-
+#logo
+{
+    width: 120px;
+}
 }
 
 
@@ -12,10 +13,16 @@
 
 @media (min-width:992px) and (max-width:1199px) 
 {
+
+    #logo
+    {
+        width: 100px;
+    }
+
     #h11
     {
        
-        font-size: 35px;
+        font-size: 32px;
     }
 
 }
@@ -25,10 +32,17 @@
 
 @media (min-width:768px) and (max-width:991px) 
 {
+
+    #logo
+    {
+        width: 95px;
+    }
+
+
     #h11
     {
        
-        font-size: 35px;
+        font-size: 29px;
     }
     
 }
@@ -36,17 +50,27 @@
 /* // Extra Small Devices// */
 
 @media (max-width:767px)
+
 {
+    #logo
+    {
+        width: 80px;
+    }
+
+
+
     #h11
     {
        
-        font-size: 28px;
+        font-size: 24px;
     }
 
-    #aintable
+    .style-one
     {
-        font-size: 21px;
+        margin:6px auto 6px auto;
     }
+
+    
 
     ul
     {
@@ -59,10 +83,17 @@
 @media (max-width:480px)
 {
 
+    #logo
+    {
+        width: 60px;
+    }
+
+
+
     #h11
     {
        
-        font-size: 24px;
+        font-size: 18px;
     }
 
     #aintable
@@ -80,5 +111,17 @@
 
 @media (max-width:320px)
 {
+
+    #logo
+    {
+        width: 50px;
+    }
+
+    #h11
+    {
+       
+        font-size: 18px;
+    }
+
 
 }
