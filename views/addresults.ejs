@@ -32,21 +32,13 @@
             </ul>
        
       </nav>
-    </div>
-
-      <div class="container-fluid">
-
-        <div class="row">
-
-          <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
 <div class="addform">
 
   <h1 class="addresultsh1">Add New Results</h1>
   <form action="/admin/addresults" method="post" enctype="multipart/form-data">
     
-    <div class="form-group">
     <label>Year:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <select  class="inputspace" name="Year">
+    <select class="inputspace" name="Year">
       <option value="I-Year">I-Year</option>
       <option value="I-I">I-I</option>
       <option value="I-II">I-II</option>
@@ -57,44 +49,28 @@
       <option value="IV-I">IV-I</option>
       <option value="IV-II">IV-II</option>
     </select>
-    
-  </div>
-
-  <div class="form-group">
+    </br>
     <label>Regulation:</label>
-    <input class="inputspace" class="form-control" id="regulation" type="text" name="Regulation" placeholder="ex:R15">
-  </div>
+    <input class="inputspace" id="regulation" type="text" name="Regulation" placeholder="ex:R15">
+      
 
-    
-    <div class="form-group">
+    </br>
     <label>Paper:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
     <select class="inputspace" name="Paper">
       <option value="regular">Regular</option>
       <option value="supplementary">Supplementary</option>
     </select>
-  </div>
-
-
-
-  
-    <div class="form-group" id="inpwidth">
+    </br>
     <label >Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <input class="form-control" class="inputspace" id="date" name="Date" type="date">
-  </div>
+    <input class="inputspace" id="date" name="Date" type="date">
 
+    </br>
     
+    <input class="inputspace" type="file" name="file" accept="application/vnd.ms-excel" multiple>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <button class="btn btn-primary btn-lg" >Submit!</button>
   
-    <input    class="inputspace" type="file" name="file" accept="application/vnd.ms-excel" multiple>
-    
-   <br>
-  
-  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <button class="btn btn-primary btn-lg" >Submit!</button>
-
   </form>
-</div>
 
-</div>
-<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12"></div>
 </div>
 
 
