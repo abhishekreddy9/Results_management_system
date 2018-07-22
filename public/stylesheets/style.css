@@ -76,6 +76,11 @@ body {
     margin: 8px 8px 8px 8px;
 }
 
+#inpwidth
+{
+width: 35%;
+}
+
 .editresults {
     margin-top: 50px;
     margin-left: 150px;
@@ -157,4 +162,11 @@ table
 #h1inresult
 {
     text-transform: capitalize;
+}
+
+
+#addrescont
+{
+    padding-left: 0px;
+    padding-right: 0px;
 }
