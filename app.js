@@ -230,9 +230,9 @@ app.get("/results/:id", function (req, res) {
 app.post("/results", function (req, res) {
   let results_model = mongoose.model(req.body.collection_id, resultSchema);
 
-
+// var res = req.body.hallticket_no.toUpperCase(); ;
   results_model.find({
-    'hallticket': req.body.hallticket_no
+    'hallticket': req.body.hallticket_no.toUpperCase()
   }, function (err, member) {
     if (err) {
       console.log(err);
