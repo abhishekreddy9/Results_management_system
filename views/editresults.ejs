@@ -35,7 +35,9 @@
                     <td>
                 <div id="eachresult">
                     <center>
-              <%= result_data[i].listid.replace(/_/g, " "); %> <a href="/admin/editresults/<%= result_data[i].listid %>">   &nbsp;&nbsp;&nbsp;&nbsp;delete  </a>
+             <%var ids= result_data[i].listid.substring(0, result_data[i].listid.length-5); %>
+
+                                                        <%= ids.replace(/_/g, " "); %> <a href="/admin/editresults/<%= result_data[i].listid %>">   &nbsp;&nbsp;&nbsp;&nbsp;delete  </a>
             </center>
             </div>
     </td>

@@ -15,7 +15,8 @@
             <br>
             <br>
             <center>
-                <h1 id="h1inresult"> <%= id.replace(/_/g, " "); %> </h1>
+                <%var ids= id.substring(0, id.length-5); %>
+                <h1 id="h1inresult"> <%= ids.replace(/_/g, " "); %> </h1>
                 <br>
              <form action="/results" method="post">
                 <input type="hidden" name="collection_id" value=<%= id %>>
@@ -25,8 +26,25 @@
             </form>
         
             <br>
+
      <% if(typeof student !='undefined'){ %>
 
+
+<% if(student.length<1) {%>
+<h1>Invalid Hallticket Number </h1>
+<% } %>
+
+     
+<% var assum = student[0]; %>
+<% if(typeof assum !='undefined') { %>
+<% console.log(assum); %>
+<% var count= Object.keys(assum.toObject()).length; %>
+<% console.log(count); %>
+<% } %>
+
+
+
+<% if(count==10) { %>
             <div class="table">
         <table class="table">
        <tr>
@@ -62,6 +80,38 @@
  </tr>
 </table>
 </div>
+<% } %>
+
+
+<% if(count<=9) { %>
+
+ <div class="table">
+        <table class="table">
+       <tr>
+    <th> &nbsp;&nbsp;Subject Code  &nbsp;&nbsp;  </th>
+    <th> &nbsp;&nbsp;Subject Name  &nbsp;&nbsp;</th>
+    <th> &nbsp;&nbsp;Grade&nbsp;&nbsp;  </th>
+    <th> &nbsp;&nbsp;Grade Points&nbsp;&nbsp;  </th>
+    </tr>
+    
+    <% var sum=0; %>
+    <% student.forEach(function(mark){ %>
+        <tr>
+       <td>&nbsp;&nbsp;<%= mark.subject_code %></td> 
+        <td>&nbsp;&nbsp;<%= mark.subject_name %> </td>
+        <td>&nbsp;&nbsp;<%= mark.grade %></td>
+        <td>&nbsp;&nbsp;<%= mark.grade_points %></td>
+    </tr>
+<% }) %> 
+   
+
+ 
+</table>
+</div>
+
+
+
+<% } %>
 <% } %>
 </center>
 

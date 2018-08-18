@@ -44,7 +44,9 @@
                                         <div class="col-md-12">
                                         <li>
                                                 <a id="aintable" href="/results/<%= result_data[i].listid %>">
-                                                        <%= result_data[i].listid.replace(/_/g, " ");%>
+                                                    <%var ids= result_data[i].listid.substring(0, result_data[i].listid.length-5); %>
+
+                                                        <%= ids.replace(/_/g, " ");%>
                                                 </a>
 
                                         </li>
@@ -62,6 +64,7 @@
 
 
         <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 
