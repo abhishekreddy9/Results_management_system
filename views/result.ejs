@@ -15,8 +15,10 @@
             <br>
             <br>
             <center>
-                <%var ids= id.substring(0, id.length-5); %>
+                <% var stsid= id; %>
+<%var ids= id.substring(0, id.length-5); %>
                 <h1 id="h1inresult"> <%= ids.replace(/_/g, " "); %> </h1>
+              
                 <br>
              <form action="/results" method="post">
                 <input type="hidden" name="collection_id" value=<%= id %>>
@@ -26,6 +28,8 @@
             </form>
         
             <br>
+
+
 
      <% if(typeof student !='undefined'){ %>
 

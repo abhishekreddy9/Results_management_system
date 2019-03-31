@@ -124,14 +124,7 @@ app.post("/admin/addresults", isLoggedIn, upload.array('file'), function (req, r
 
   {
 
-
-
-
-
-
-
-
-  console.log(req.body);
+console.log(req.body);
   console.log(req.files);
 
   var collName = req.body.Year + "_" + req.body.Regulation + "_" + req.body.Paper + "_" + 'Results' + "_" + req.body.Date  + "_" + req.body.system;
@@ -231,7 +224,7 @@ console.log(req.body);
     console.log(result.Sheet0);
     results_model.insertMany(result.Sheet0, function (err) {
       if (err)
-        res.send("Error");
+        res.send("error");
       else {
         fs.unlink(file.path, function (error) {
           if (error) {
@@ -453,6 +446,62 @@ app.post('/register', function (req, res) {
     }
   });
 });
+
+
+app.get("/results/stats/:id", function (req, res) {
+
+  var statsid = req.params.id;
+  var lastCh = statsid.substr(statsid.length - 1);
+
+
+if(lastCh === "s")
+{
+
+  let results_model = mongoose.model(req.params.id, resultSchemaMarks);
+
+// var res = req.body.hallticket_no.toUpperCase(); ;
+  results_model.find({}, function (err, member) {
+    if (err) {
+      console.log(err);
+    }
+     else {
+
+     console.log(member); 
+      res.send(member);
+
+      }
+
+    
+      // res.send(member);  
+    
+  });
+
+}
+
+  
+
+
+
+if(lastCh === "e")
+{
+  let results_model = mongoose.model(req.params.id, resultSchemaGrade);
+
+// var res = req.body.hallticket_no.toUpperCase(); ;
+   results_model.find({}, function (err, member) {
+    if (err) {
+      console.log(err);
+    }
+     else {
+      console.log(member); 
+      res.send(member);
+      }
+      // res.send(member);  
+    
+  });
+
+ }
+
+     });
 
 
 app.listen(3000, process.env.IP, function () {
